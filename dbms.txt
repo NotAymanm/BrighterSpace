@@ -1,0 +1,77 @@
+Year:
+    - Study Year (Ex. 2023-2024)
+
+    - Has Terms
+
+Terms:
+    - 3 Terms (Fall, Winter, Summer)
+
+    - Has Courses.
+
+Courses:
+    - Course Code (NOT NULL, UNIQUE)
+    - Course Name
+    - Prof Name
+    - Prof Email
+    - ColorCode (NOT NULL, UNIQUE)
+
+    - Has Tasks.
+
+Tasks:
+    - Task Name (NOT NULL, UNIQUE)
+    - Task Type (NOT NULL, UNIQUE)
+        - Assignments
+        - Quizzes
+        - Midterms
+        - Tests
+        - Essays
+        - Projects
+        - Tutorials
+        - Labs
+        - Finals
+    - Weight
+    - Due Date (NOT NULL)
+    - Grade
+
+/////////////////////////////////////////////////////
+
+CREATE TABLE IF NOT EXISTS Year (
+    StudyYear TEXT PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS Term (
+    TermType TEXT NOT NULL CHECK(TermType IN ('Fall', 'Winter', 'Summer')),
+    StudyYear TEXT NOT NULL,
+    PRIMARY KEY (TermType, StudyYear),
+    FOREIGN KEY (StudyYear) REFERENCES Year (StudyYear)
+);
+
+CREATE TABLE IF NOT EXISTS Professor (
+    ProfName TEXT PRIMARY KEY,
+    ProfEmail TEXT
+);
+
+CREATE TABLE IF NOT EXISTS Course (
+    CourseCode TEXT NOT NULL,
+    CourseName TEXT,
+    ColorCode TEXT NOT NULL UNIQUE,
+    ProfName TEXT,
+    TermType TEXT NOT NULL,
+    StudyYear TEXT NOT NULL,
+    PRIMARY KEY (CourseCode, TermType, StudyYear),
+    FOREIGN KEY (TermType, StudyYear) REFERENCES Term (TermType, StudyYear),
+    FOREIGN KEY (ProfName) REFERENCES Professor (ProfName)
+);
+
+CREATE TABLE IF NOT EXISTS Task (
+    TaskName TEXT NOT NULL,
+    TaskType TEXT NOT NULL,
+    Weight REAL,
+    DueDate TEXT NOT NULL,
+    Grade REAL,
+    CourseCode TEXT NOT NULL,
+    TermType TEXT NOT NULL,
+    StudyYear TEXT NOT NULL,
+    PRIMARY KEY (TaskName, DueDate),
+    FOREIGN KEY (CourseCode, TermType, StudyYear) REFERENCES Course (CourseCode, TermType, StudyYear)
+);

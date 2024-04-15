@@ -1,0 +1,9 @@
+import AddTask from "./AddTask";
+import CourseTasks from "./CourseTasks";
+import EditTask from "./EditTask";
+import PickCourse from "./PickCourse";
+import SelectTask from "./SelectTask";
+
+export{
+    AddTask, CourseTasks, EditTask, PickCourse, SelectTask
+}
