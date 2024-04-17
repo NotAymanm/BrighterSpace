@@ -31,3 +31,7 @@ APPLY NOW!!!!!!
     - React Native
     - Firebase
     - SQLite
+
+UPDATES:
+    - BottomTabNavigator (optimize it)
+    - database (less getters)
