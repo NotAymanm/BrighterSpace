@@ -1,17 +1,17 @@
-1: Make the monads look nice (Year - eehh, Course - DONE beautiful, Task - Copy course)
-2: Handle course delete and task delete
+1: Make the monads look nice (Year - eehh, Course - DONE beautiful, Task - Copy course) (DONE)
+2: Handle course delete and task delete (ALMOST DONE)
 3: Course Task page
-    - Add/Update Grade
-    - Update Due Date
+    - Add/Update Grade (DONE)
+    - Update Due Date (DONE)
     - Add/Update Weight
-    - Change Name
-4: Add Color feature when making course
-5: Make All Tasks page (Copy paste course task and add course name to tasks)
+    - Change Name (DONE)
+4: Add Color feature when making course 
+5: Make All Tasks page (DONE)
 6: Display color on course and display color as border color on ALL TASKS (Very Easy/Half way done)
-7: Implement push notifications for tasks due
+7: Implement push notifications for tasks due (MAYBE CHANGE TO FIREBASE NOTIFI)
 8: Complete weight and grade functionallity. (CAN WAIT TILL LATER just hide these for now)
 9: Add Semi Circle View at the Top demonstrating current total grade for course. (Can wait)
-10: Add Schedule to homepage.
+10: Add Schedule to homepage. (DONE)
 11: add filters to All Tasks and easy to read views
     - Show/hide past tasks
     - show/hide completed tasks
