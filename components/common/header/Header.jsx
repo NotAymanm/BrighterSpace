@@ -27,7 +27,6 @@ const Header = ({ page, handleNew }) => {
 
       <Text style={styles.headerText}>{page}</Text>
 
-      {/* add Year Button '+' */}
       <TouchableOpacity
         style={styles.headerButton}
         onPress={handleNew}

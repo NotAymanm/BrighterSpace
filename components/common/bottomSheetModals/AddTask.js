@@ -99,7 +99,7 @@ const AddTask = forwardRef((props, ref) => {
     resetStates,
   }));
 
-  //TASK TYPE BOTTOMSHEET MODAL
+  //TASK COURSE MODAL
   const [courseSelectionVisible, setCourseSelectionVisible] = useState(false);
   const bottomSheetModalCourseRef = useRef(null);
   const handlePickCourse = () => {

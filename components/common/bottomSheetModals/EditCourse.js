@@ -7,29 +7,24 @@ import { COLORS } from '../../../constants';
 import {
   BottomSheetModal,
   BottomSheetBackdrop,
-  BottomSheetTextInput,
 } from '@gorhom/bottom-sheet';
 
 import { BinIcon, EditIcon } from '../../../icons';
 
-import { deleteTask } from '../../../database';
+import { deleteCourse } from '../../../database';
 
-import { cancelNotification } from '../../../app/notify';
+import AddCourse from './AddCourse';
 
-import AddTask from './AddTask';
-
-const EditTask = forwardRef((props, ref) => {
+const EditCourse = forwardRef((props, ref) => {
 
   const {
-    task,
+    course,
     setDbChange,
     dbChange,
     setEditModalVisible
   } = props;
 
-  const [grade, changeGrade] = useState('');
-
-  const snapPoint = useMemo(() => ["42%"], []);
+  const snapPoint = useMemo(() => ["27%"], []);
 
   const renderBackdrop = (props) => (
     <BottomSheetBackdrop
@@ -41,31 +36,26 @@ const EditTask = forwardRef((props, ref) => {
     />
   );
 
-  const closeEditTask = () => {
+  const closeEditCourse = () => {
     ref.current?.close();
     setEditModalVisible(false);
   };
 
-  const handleDeleteTask = () => {
-    cancelNotification(task.TaskName, task.DueDate, task.CourseCode, task.TermType, task.StudyYear);
-    deleteTask(task.TaskName, task.DueDate, task.CourseCode, task.TermType, task.StudyYear);
+  const handleDeleteCourse = () => {
+    deleteCourse(course.CourseCode, course.TermType, course.StudyYear);
 
     setDbChange(!dbChange);
 
-    closeEditTask();
+    closeEditCourse();
   }
 
   const [modalVisible, setModalVisible] = useState(false);
   const bottomSheetModalRef = useRef(null);
 
-  const handleEditTask = () => {
+  const handleEditCourse = () => {
 
     setModalVisible(true);
     bottomSheetModalRef.current?.present();
-  }
-
-  const handleSaveGrade = () => {
-
   }
 
   //closes bottom sheet modal on back
@@ -103,12 +93,12 @@ const EditTask = forwardRef((props, ref) => {
 
         <View style={styles.titleSaveView}>
 
-          <Text style={styles.bottomSheetTitle}>Edit Task</Text>
+          <Text style={styles.bottomSheetTitle}>Edit Course</Text>
 
-          {/* Edit Task */}
+          {/* Delete Course Button */}
           <TouchableOpacity
             style={{ paddingRight: 10 }}
-            onPress={() => handleDeleteTask()}
+            onPress={() => handleDeleteCourse()}
           >
             <BinIcon color={COLORS.red} />
           </TouchableOpacity>
@@ -121,7 +111,7 @@ const EditTask = forwardRef((props, ref) => {
           {/* Edit */}
           <TouchableOpacity
             style={styles.iconButtons}
-            onPress={() => handleEditTask()}
+            onPress={() => handleEditCourse()}
           >
             <Text
               style={styles.buttonText}>
@@ -130,35 +120,15 @@ const EditTask = forwardRef((props, ref) => {
             <EditIcon color={COLORS.white} />
           </TouchableOpacity>
 
-          <AddTask
+          <AddCourse
             ref={bottomSheetModalRef}
             setDbChange={setDbChange}
             dbChange={dbChange}
             setModalVisible={setModalVisible}
-            task={task}
-            closeEditTask={closeEditTask}
+            course={course}
+            closeEditCourse={closeEditCourse}
+            setEditModalVisible={setEditModalVisible}
           />
-
-          {/* Change Grade */}
-          <BottomSheetTextInput
-            style={styles.inputStyles}
-            onChangeText={changeGrade}
-            value={grade}
-            placeholder='Add Grade'
-            placeholderTextColor={COLORS.gray}
-            keyboardType='number-pad'
-
-          />
-
-          <View style={{ width: "100%", alignItems: 'flex-end', marginTop: 5 }}>
-            {/* Save Grade */}
-            <TouchableOpacity
-              style={styles.saveButton}
-              onPress={() => handleSaveGrade()}
-            >
-              <Text style={styles.saveButtonText}>Save</Text>
-            </TouchableOpacity>
-          </View>
 
         </View>
 
@@ -168,4 +138,4 @@ const EditTask = forwardRef((props, ref) => {
   )
 });
 
-export default EditTask;
+export default EditCourse;
