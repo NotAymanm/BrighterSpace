@@ -24,3 +24,25 @@ export const updateTask = (task, newValues) => {
         });
     });
 }
+
+export const updateCourse = (course, newValues) => {
+
+    let courseCode = course.CourseCode;
+    let termType = course.TermType;
+    let studyYear = course.StudyYear;
+
+    return new Promise((resolve, reject) => {
+        db.transaction(tx => {
+            let setString = Object.keys(newValues).map(key => `${key} = ?`).join(', ');
+
+            let values = Object.values(newValues);
+            values.push(courseCode, termType, studyYear);
+            tx.executeSql(
+                `UPDATE Course SET ${setString} WHERE CourseCode = ? AND TermType = ? AND StudyYear = ?`,
+                values,
+                (_, result) => resolve(result),
+                (_, error) => reject(error)
+            );
+        });
+    });
+}
