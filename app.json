@@ -2,15 +2,15 @@
   "expo": {
     "name": "BrighterSpace",
     "slug": "brigherspace",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/Logo/logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/Logo/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFD79F"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -23,8 +23,8 @@
       "useNextNotificationsApi": true,
       "permissions": ["android.permission.SCHEDULE_EXACT_ALARM", "RECEIVE_BOOT_COMPLETED"],
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/Logo/logo.png",
+        "backgroundColor": "#FFD79F"
       },
       "package": "com.brigherspace.brigherspace"
     },
