@@ -25,11 +25,15 @@ BrighterSpace is a task and course management app designed to help students orga
 We welcome contributions to BrighterSpace! Here's how you can help:
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
+   
 3. Commit your changes and push them to your fork:
+
    ```bash
    git push origin feature/your-feature-name
    ```
+   
 4. Submit a pull request with a detailed description of your changes.
