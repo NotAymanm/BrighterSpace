@@ -1,6 +1,6 @@
-# BrighterSpace
+# 📂 BrighterSpace
 
-## Description
+## 💡 Description
 BrighterSpace is a task and course management app designed to help students organize their academic schedules, manage tasks, and stay on top of deadlines. The application integrates with SQLite for database management, ensuring persistent data storage. Features include task notifications, custom themes, and user-friendly navigation.
 
 ## 📋 Table of Contents
